@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ResponseDto {
+public class SignatureResponseDto {
     private byte[] data;
     private byte[] signature;
     private byte[] publicKeyBytes;

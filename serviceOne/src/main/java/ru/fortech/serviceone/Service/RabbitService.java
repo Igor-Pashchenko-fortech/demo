@@ -1,9 +1,9 @@
 package ru.fortech.serviceone.Service;
 
-import ru.fortech.serviceone.Service.dto.ResponseServiceTwoDto;
+import ru.fortech.serviceone.Service.dto.SignatureResponseDto;
 
 public interface RabbitService {
-    ResponseServiceTwoDto sendMessage();
+    SignatureResponseDto sendMessage();
 
-    boolean verifySignature(ResponseServiceTwoDto message);
+    boolean verifySignature(SignatureResponseDto message);
 }

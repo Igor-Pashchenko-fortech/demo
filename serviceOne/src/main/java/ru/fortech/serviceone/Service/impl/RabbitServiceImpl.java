@@ -6,7 +6,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
 import ru.fortech.serviceone.Service.RabbitService;
-import ru.fortech.serviceone.Service.dto.ResponseServiceTwoDto;
+import ru.fortech.serviceone.Service.dto.SignatureResponseDto;
 import ru.fortech.serviceone.config.MQConfiguration;
 import ru.fortech.serviceone.util.ByteArrayGenerator;
 import ru.fortech.serviceone.util.ECDSAVerify;
@@ -21,7 +21,7 @@ import java.security.spec.X509EncodedKeySpec;
 public class RabbitServiceImpl implements RabbitService {
     private final RabbitTemplate rabbitTemplate;
 
-    public boolean verifySignature(ResponseServiceTwoDto message) {
+    public boolean verifySignature(SignatureResponseDto message) {
         try {
             byte[] data = message.getData();
             byte[] signature = message.getSignature();
@@ -38,7 +38,7 @@ public class RabbitServiceImpl implements RabbitService {
     }
 
     @Override
-    public ResponseServiceTwoDto sendMessage() {
+    public SignatureResponseDto sendMessage() {
         return rabbitTemplate.convertSendAndReceiveAsType(
                 MQConfiguration.RPC_EXCHANGE, MQConfiguration.ROUTING_KEY, ByteArrayGenerator.getRandomBytes(),
                 new ParameterizedTypeReference<>() {

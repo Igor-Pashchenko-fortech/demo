@@ -1,8 +1,12 @@
 package ru.fortech.servicetwo.Service;
 
-import ru.fortech.servicetwo.Service.dto.ResponseDto;
+import ru.fortech.servicetwo.Service.dto.SignatureResponseDto;
+
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SignatureException;
 
 
 public interface SignatureService {
-    ResponseDto signData(byte[] data) throws Exception;
+    SignatureResponseDto signData(byte[] data) throws NoSuchAlgorithmException, SignatureException, InvalidKeyException;
 }

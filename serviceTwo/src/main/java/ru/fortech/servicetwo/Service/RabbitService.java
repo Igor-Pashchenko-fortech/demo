@@ -1,8 +1,8 @@
 package ru.fortech.servicetwo.Service;
 
 
-import ru.fortech.servicetwo.Service.dto.ResponseDto;
+import ru.fortech.servicetwo.Service.dto.SignatureResponseDto;
 
 public interface RabbitService {
-    ResponseDto listen(byte[] message);
+    SignatureResponseDto listen(byte[] message);
 }
